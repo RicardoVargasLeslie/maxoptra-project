@@ -1,9 +1,9 @@
-package com.imricki.maxopra.domain.app;
+package com.imricki.maxopra.web.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = { "com" })
 public class DemoApplication {
 
 	public static void main(String[] args) {

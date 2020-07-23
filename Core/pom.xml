@@ -17,5 +17,6 @@
 
 	<modules>
 		<module>Domain</module>
+		<module>Web</module>
 	</modules>
 </project>
