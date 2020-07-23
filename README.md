@@ -1,6 +1,13 @@
 
 
-  <h2 align="center">Maxoptra</h2>
+<p align="center">
+    <img src="img/0.png"
+        height="400" height="400">
+</p>
+
+  <h2 align="center">MaxOptra</h2>
+
+
 
 > Test for Maxopra. :speak_no_evil:
 >
@@ -24,13 +31,13 @@ To set up the App follow these steps:
 
 
 
-## Running *Breaking Bad App* Locally:computer:
+## Running Locally:computer:
 
 OS X - Linux - Windows
 
 ```sh
-git clone https://github.com/RicardoVargasLeslie/breaking-bad-app.git
-cd breaking-bad-app
+git clone https://github.com/RicardoVargasLeslie/maxoptra-project.git
+cd maxoptra-project
 ./mvnw spring-boot:run
 ```
 
@@ -61,4 +68,4 @@ If you want to contact me you can reach me at RicardoVargasLeslie@gmail.com.
 
 ## License:scroll:
 
-This project uses the following license: [Apache License 2.0](<link>).
+This project uses the following license: [MIT Licence](<link>).
