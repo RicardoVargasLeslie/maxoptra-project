@@ -25,4 +25,7 @@
 
 
 	</dependencies>
+	<modules>
+		<module>Domain</module>
+	</modules>
 </project>
