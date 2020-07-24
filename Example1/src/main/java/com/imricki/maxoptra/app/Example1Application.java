@@ -1,6 +1,8 @@
 package com.imricki.maxoptra.app;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAccessor;
@@ -37,9 +39,18 @@ public class Example1Application {
 			System.err.println(str);
 
 			DateTimeFormatter parser = DateTimeFormatter.ofPattern("MMM").withLocale(Locale.ENGLISH);
-			TemporalAccessor accessor = parser.parse("Oct");
+			TemporalAccessor accessor = parser.parse("Feb");
 			System.out.println(accessor.get(ChronoField.MONTH_OF_YEAR)); // prints 2
-//			
+
+			Month monthFromInt = Month.of(accessor.get(ChronoField.MONTH_OF_YEAR));
+
+			// LocalDate date = LocalDate.parse("" + monthFromInt,
+			// DateTimeFormatter.ofPattern("d-MMM-yyyy"));
+
+			LocalDate firstDay_2014 = LocalDate.of(2014, monthFromInt, 1);
+			System.out.println("Specific Date=" + firstDay_2014);
+
+//			8-Jan-2020
 //			LocalDate t;
 //			
 //			String date = "04/2018";
