@@ -2,7 +2,7 @@ package com.imricki.maxoptra.service;
 
 import org.springframework.stereotype.Service;
 
-import com.imricki.maxoptra.utils.OfuscateUtil;
+import com.imricki.maxoptra.utils.DataUtils;
 
 @Service
 public class ProcesData implements BankService {
@@ -15,7 +15,7 @@ public class ProcesData implements BankService {
 	@Override
 	public void ofuscateData(String cardNumber) {
 
-		OfuscateUtil.ofuscateCardData(cardNumber);
+		DataUtils.ofuscateCardNumber(cardNumber);
 	}
 
 }
