@@ -1,7 +1,11 @@
 package com.imricki.maxoptra.app;
 
 import java.io.File;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoField;
+import java.time.temporal.TemporalAccessor;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -32,9 +36,9 @@ public class Example1Application {
 
 			System.err.println(str);
 
-//			DateTimeFormatter parser = DateTimeFormatter.ofPattern("MMM").withLocale(Locale.ENGLISH);
-//			TemporalAccessor accessor = parser.parse("Feb");
-//			System.out.println(accessor.get(ChronoField.MONTH_OF_YEAR)); // prints 2
+			DateTimeFormatter parser = DateTimeFormatter.ofPattern("MMM").withLocale(Locale.ENGLISH);
+			TemporalAccessor accessor = parser.parse("Oct");
+			System.out.println(accessor.get(ChronoField.MONTH_OF_YEAR)); // prints 2
 //			
 //			LocalDate t;
 //			
