@@ -1,12 +1,11 @@
 
 
 <p align="center">
-    <img src="img/0.png"
+    <img src="img/maxoptra-logo.png"
         height="400" height="400">
 </p>
 
   <h2 align="center">MaxOptra</h2>
-
 
 
 > Test for Maxopra. :speak_no_evil:
