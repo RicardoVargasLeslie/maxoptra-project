@@ -13,6 +13,10 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 /**
  * ReaderUtil permits to read the CSV file and Marshall it to beans.
+ * 
+ * @author Ricardo Vargas
+ * @version 1.0
+ * 
  */
 public final class ReaderUtil {
 
