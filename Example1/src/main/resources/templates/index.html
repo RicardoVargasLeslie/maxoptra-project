@@ -50,7 +50,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="bankDetailDto, i : ${bankDetailDtos}">
+						<tr th:each="bankDetailDto, i : ${details}">
 							<th scope="row" th:text="${i.index + 1}"></th>
 							<td th:text="${bankDetailDto.bank}"></td>
 							<td th:text="${bankDetailDto.cardNumber}"></td>
