@@ -1,5 +1,8 @@
 package com.imricki.maxoptra.dto;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 /**
  * BankDetailDto is a Data Transfer Object that is sent to the View to show the
  * data.
@@ -9,10 +12,16 @@ package com.imricki.maxoptra.dto;
  */
 public class BankDetailDto {
 
+	@NotNull
+	@NotEmpty
 	private String bank;
 
+	@NotNull
+	@NotEmpty
 	private String cardNumber;
 
+	@NotNull
+	@NotEmpty
 	private String expirydate;
 
 	public BankDetailDto() {
