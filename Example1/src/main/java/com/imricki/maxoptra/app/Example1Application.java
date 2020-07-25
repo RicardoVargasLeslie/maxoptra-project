@@ -1,7 +1,6 @@
 package com.imricki.maxoptra.app;
 
 import java.io.File;
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
@@ -29,9 +28,9 @@ public class Example1Application {
 				System.out.println("Element : " + elem);
 			}
 
-			LocalDate date = DataUtils.stringToLocalDate("Oct-2017");
-
-			System.err.println("Salida -> " + date);
+//			LocalDate date = DataUtils.stringToLocalDate("Oct-2017");
+//
+//			System.err.println("Salida -> " + date);
 		};
 
 	}

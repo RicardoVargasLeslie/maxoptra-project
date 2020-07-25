@@ -1,6 +1,10 @@
 package com.imricki.maxoptra.model;
 
+import java.time.LocalDate;
+
+import com.imricki.maxoptra.LocalDateConverter;
 import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvCustomBindByPosition;
 
 public class BankDetail {
 
@@ -10,11 +14,19 @@ public class BankDetail {
 	@CsvBindByName(column = "Card number")
 	private String cardNumber;
 
-	@CsvBindByName(column = "Expiry date")
-	private String expirydate;
+	@CsvCustomBindByPosition(position = 4, converter = LocalDateConverter.class)
+	private LocalDate expirydate;
 
 	public BankDetail() {
 
+	}
+
+	public LocalDate getExpirydate() {
+		return expirydate;
+	}
+
+	public void setExpirydate(LocalDate expirydate) {
+		this.expirydate = expirydate;
 	}
 
 	public String getBank() {
@@ -31,19 +43,6 @@ public class BankDetail {
 
 	public void setCardNumber(String cardNumber) {
 		this.cardNumber = cardNumber;
-	}
-
-	public String getExpirydate() {
-		return expirydate;
-	}
-
-	public void setExpirydate(String expirydate) {
-		this.expirydate = expirydate;
-	}
-
-	@Override
-	public String toString() {
-		return "Detail [bank=" + bank + ", cardNumber=" + cardNumber + ", expirydate=" + expirydate + "]";
 	}
 
 }
