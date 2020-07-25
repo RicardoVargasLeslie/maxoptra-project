@@ -71,6 +71,8 @@ public final class DataUtils {
 
 	public static String fromDateToString(LocalDate date) {
 
-		return date.format(DateTimeFormatter.ofPattern("MMM-yyyy", Locale.ENGLISH)).toUpperCase();
+		String dateFormated = date.format(DateTimeFormatter.ofPattern("MMM-yyyy", Locale.ENGLISH));
+
+		return dateFormated.substring(0, 1).toUpperCase() + dateFormated.substring(1);
 	}
 }
