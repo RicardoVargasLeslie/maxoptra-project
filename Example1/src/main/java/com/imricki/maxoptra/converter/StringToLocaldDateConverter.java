@@ -6,12 +6,19 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAccessor;
 import java.util.Locale;
+import java.util.logging.Logger;
 
 import com.opencsv.bean.AbstractBeanField;
 import com.opencsv.exceptions.CsvConstraintViolationException;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 
-public class StringToLocaldDateConverter extends AbstractBeanField<Object, Object> {
+public final class StringToLocaldDateConverter extends AbstractBeanField<Object, Object> {
+
+	private static final Logger LOGGER = Logger.getLogger(StringToLocaldDateConverter.class.getName());
+
+	public StringToLocaldDateConverter() {
+
+	}
 
 	@Override
 	protected Object convert(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {

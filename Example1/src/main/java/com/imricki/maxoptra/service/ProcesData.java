@@ -4,23 +4,28 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.springframework.stereotype.Service;
 
+import com.imricki.maxoptra.csvreader.ReaderUtil;
 import com.imricki.maxoptra.dto.BankDetailDto;
+import com.imricki.maxoptra.mapper.ListMapperUtil;
 import com.imricki.maxoptra.model.BankDetail;
-import com.imricki.maxoptra.utils.DataUtils;
 
 @Service
-public class ProcesData implements BankService {
+public class ProcesData implements BankDetailService {
+
+	private static final Logger LOGGER = Logger.getLogger(ProcesData.class.getName());
 
 	@Override
 	public List<BankDetailDto> ProcessList(File csvFile) throws IOException {
 
-		List<BankDetail> listFromCsv = DataUtils.csvToDetailsWithHeaders(csvFile);
+		LOGGER.info("Call() ----> ProcessList()");
+		List<BankDetail> listFromCsv = ReaderUtil.csvToDetailsWithHeaders(csvFile);
 		listFromCsv.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
 
-		return DataUtils.mapLists(listFromCsv);
+		return ListMapperUtil.mapLists(listFromCsv);
 
 	}
 

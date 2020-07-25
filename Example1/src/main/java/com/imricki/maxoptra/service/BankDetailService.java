@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.imricki.maxoptra.dto.BankDetailDto;
 
-public interface BankService {
+public interface BankDetailService {
 
 	List<BankDetailDto> ProcessList(File csvFile) throws IOException;
 
