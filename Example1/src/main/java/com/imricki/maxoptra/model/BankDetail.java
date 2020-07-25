@@ -14,13 +14,13 @@ import com.opencsv.bean.CsvCustomBindByName;
  */
 public class BankDetail {
 
-	@CsvBindByName(column = "Bank")
+	@CsvBindByName(column = "Bank", required = true)
 	private String bank;
 
-	@CsvBindByName(column = "Card number")
+	@CsvBindByName(column = "Card number", required = true)
 	private String cardNumber;
 
-	@CsvCustomBindByName(column = "Expiry date", converter = StringToLocaldDateConverter.class)
+	@CsvCustomBindByName(column = "Expiry date", converter = StringToLocaldDateConverter.class, required = true)
 	private LocalDate expirydate;
 
 	public BankDetail() {
