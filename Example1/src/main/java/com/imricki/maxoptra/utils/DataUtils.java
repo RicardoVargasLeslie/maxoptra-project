@@ -45,28 +45,28 @@ public final class DataUtils {
 
 		FileReader reader = new FileReader(csvFile, StandardCharsets.UTF_8);
 
-		// CSV with Headers
-		CsvToBean<BankDetail> cb = new CsvToBeanBuilder<BankDetail>(reader).withType(BankDetail.class)
+		CsvToBean<BankDetail> CsvToBeanMapper = new CsvToBeanBuilder<BankDetail>(reader).withType(BankDetail.class)
 				.withSeparator(SEPARATOR).build();
-		List<BankDetail> details = cb.parse();
+
+		List<BankDetail> detailBeans = CsvToBeanMapper.parse();
 
 		reader.close();
 
-		return details;
+		return detailBeans;
 
 	}
 
 	public static List<BankDetailDto> mapLists(List<BankDetail> listFromCsv) {
 
-		List<BankDetailDto> dtoList = new ArrayList<>(listFromCsv.size());
+		List<BankDetailDto> listToView = new ArrayList<>(listFromCsv.size());
 
 		for (BankDetail bankDetail : listFromCsv) {
 
-			dtoList.add(new BankDetailDto(bankDetail.getBank(), bankDetail.getCardNumber(),
+			listToView.add(new BankDetailDto(bankDetail.getBank(), ofuscateCardNumber(bankDetail.getCardNumber()),
 					fromDateToString(bankDetail.getExpirydate())));
 		}
 
-		return dtoList;
+		return listToView;
 	}
 
 	public static String fromDateToString(LocalDate date) {

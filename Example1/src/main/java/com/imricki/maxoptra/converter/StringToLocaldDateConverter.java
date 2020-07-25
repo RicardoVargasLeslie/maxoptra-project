@@ -23,9 +23,8 @@ public class StringToLocaldDateConverter extends AbstractBeanField<Object, Objec
 		TemporalAccessor accessor = parser.parse(Mes);
 		Month monthFromInt = Month.of(accessor.get(ChronoField.MONTH_OF_YEAR));
 
-		LocalDate date = LocalDate.of(Integer.valueOf(Año), monthFromInt, 1);
+		return LocalDate.of(Integer.valueOf(Año), monthFromInt, 1);
 
-		return date;
 	}
 
 }

@@ -8,6 +8,6 @@ import com.imricki.maxoptra.dto.BankDetailDto;
 
 public interface BankService {
 
-	List<BankDetailDto> Operate(File csvFile) throws IOException;
+	List<BankDetailDto> ProcessList(File csvFile) throws IOException;
 
 }

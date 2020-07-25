@@ -15,7 +15,7 @@ import com.imricki.maxoptra.utils.DataUtils;
 public class ProcesData implements BankService {
 
 	@Override
-	public List<BankDetailDto> Operate(File csvFile) throws IOException {
+	public List<BankDetailDto> ProcessList(File csvFile) throws IOException {
 
 		List<BankDetail> listFromCsv = DataUtils.csvToDetailsWithHeaders(csvFile);
 		listFromCsv.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));

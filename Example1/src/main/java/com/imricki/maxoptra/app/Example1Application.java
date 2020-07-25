@@ -24,9 +24,8 @@ public class Example1Application {
 	public CommandLineRunner run() throws Exception {
 		return args -> {
 
-			System.err.println(procesData.Operate(new File("test.csv")));
+			System.err.println(procesData.ProcessList(new File("test.csv")));
 
 		};
-
 	}
 }
