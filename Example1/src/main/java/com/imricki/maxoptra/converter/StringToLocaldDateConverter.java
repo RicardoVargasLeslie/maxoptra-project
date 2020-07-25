@@ -1,4 +1,4 @@
-package com.imricki.maxoptra;
+package com.imricki.maxoptra.converter;
 
 import java.time.LocalDate;
 import java.time.Month;
@@ -7,14 +7,11 @@ import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAccessor;
 import java.util.Locale;
 
-import org.springframework.stereotype.Component;
-
 import com.opencsv.bean.AbstractBeanField;
 import com.opencsv.exceptions.CsvConstraintViolationException;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 
-@Component
-public class LocalDateConverter extends AbstractBeanField<Object, Object> {
+public class StringToLocaldDateConverter extends AbstractBeanField<Object, Object> {
 
 	@Override
 	protected Object convert(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {

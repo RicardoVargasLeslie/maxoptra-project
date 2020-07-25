@@ -2,7 +2,7 @@ package com.imricki.maxoptra.model;
 
 import java.time.LocalDate;
 
-import com.imricki.maxoptra.LocalDateConverter;
+import com.imricki.maxoptra.converter.StringToLocaldDateConverter;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
 
@@ -14,7 +14,7 @@ public class BankDetail {
 	@CsvBindByName(column = "Card number")
 	private String cardNumber;
 
-	@CsvCustomBindByName(column = "Expiry date", converter = LocalDateConverter.class)
+	@CsvCustomBindByName(column = "Expiry date", converter = StringToLocaldDateConverter.class)
 	private LocalDate expirydate;
 
 	public BankDetail() {
