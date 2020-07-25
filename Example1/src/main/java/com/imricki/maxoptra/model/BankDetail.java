@@ -21,6 +21,13 @@ public class BankDetail {
 
 	}
 
+	public BankDetail(String bank, String cardNumber, LocalDate expirydate) {
+		super();
+		this.bank = bank;
+		this.cardNumber = cardNumber;
+		this.expirydate = expirydate;
+	}
+
 	public LocalDate getExpirydate() {
 		return expirydate;
 	}

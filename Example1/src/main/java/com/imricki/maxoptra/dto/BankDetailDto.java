@@ -12,6 +12,13 @@ public class BankDetailDto {
 
 	}
 
+	public BankDetailDto(String bank, String cardNumber, String expirydate) {
+		super();
+		this.bank = bank;
+		this.cardNumber = cardNumber;
+		this.expirydate = expirydate;
+	}
+
 	public String getBank() {
 		return bank;
 	}

@@ -24,23 +24,7 @@ public class Example1Application {
 	public CommandLineRunner run() throws Exception {
 		return args -> {
 
-			// List<BankDetail> list = DataUtils.csvToDetailsWithHeaders(new
-			// File("test.csv"));
-
-			// List<BankDetail> list
-
-			// list.sort(Comparator.comparing(BankDetail::getExpirydate,
-			// Comparator.reverseOrder()));
-
-//			System.err.println("------------------Antes--------------------");
-//			list.forEach(System.out::print);
-//
-//			list.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
-//
-//			System.err.println("------------------Despues--------------------");
-//			list.forEach(System.out::print);
-
-			System.err.println("-------" + procesData.Operate(new File("test.csv")));
+			System.err.println(procesData.Operate(new File("test.csv")));
 
 		};
 
