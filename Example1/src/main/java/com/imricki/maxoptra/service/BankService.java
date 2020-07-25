@@ -1,8 +1,13 @@
 package com.imricki.maxoptra.service;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import com.imricki.maxoptra.model.BankDetail;
+
 public interface BankService {
 
-	void sortByExpiringDate();
+	List<BankDetail> sortByExpiringDate(File csvFile) throws IOException;
 
-	void ofuscateData(String cardNumber);
 }
