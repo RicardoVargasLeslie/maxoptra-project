@@ -23,6 +23,7 @@ public final class StringToLocaldDateConverter extends AbstractBeanField<Object,
 	@Override
 	protected Object convert(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {
 
+		LOGGER.info("Call() ----> convert()");
 		String[] parts = value.split("-");
 		String Mes = parts[0];
 		String Año = parts[1];

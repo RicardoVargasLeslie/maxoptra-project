@@ -15,6 +15,8 @@ public final class DataUtil {
 
 	public static String ofuscateCardNumber(String cardNuumber) {
 
+		LOGGER.info("Call() ----> ofuscateCardNumber()");
+
 		if (cardNuumber != null && !cardNuumber.isBlank() && cardNuumber.length() == 19) {
 
 			cardNuumber = cardNuumber.replaceFirst(".{14}", "xxxx-xxxx-xxxx");
@@ -26,6 +28,8 @@ public final class DataUtil {
 	}
 
 	public static String fromDateToString(LocalDate date) {
+
+		LOGGER.info("Call() ----> fromDateToString()");
 
 		String dateFormated = date.format(DateTimeFormatter.ofPattern("MMM-yyyy", Locale.ENGLISH));
 
