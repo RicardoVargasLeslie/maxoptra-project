@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Upload CSV File Example</title>
+<title>Upload By Ricardo Vargas</title>
 
 <!--Bootstrap 4-->
 <link rel="stylesheet"
@@ -29,22 +29,37 @@
 	</div>
 
 	<div class="container py-5">
-		<table>
-			<thead>
-				<tr>
-					<th>Bank</th>
-					<th>Card Number</th>
-					<th>Expiry Date</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="book : ${books}">
-					<td><span th:text="${book.title}"> Bank </span></td>
-					<td><span th:text="${book.author}"> Card Number </span></td>
-					<td><span th:text="${book.author}"> Expiry Date </span></td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="row">
+			<div class="col-10 mx-auto">
+				<h1>File Upload Status</h1>
+				<!--display error if any-->
+
+				<!--
+				<div class="alert alert-danger" role="alert" th:if="${!status}">
+					<strong>Error:</strong> <span th:text="${message}"></span>
+				</div>
+-->
+				<!--display users list-->
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">Bank</th>
+							<th scope="col">Card number</th>
+							<th scope="col">Expiry date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="user, i : ${users}">
+							<th scope="row" th:text="${i.index + 1}"></th>
+							<td th:text="${user.id}"></td>
+							<td th:text="${user.name}"></td>
+							<td th:text="${user.email}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
