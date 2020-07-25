@@ -16,19 +16,27 @@ public class StringToLocaldDateConverter extends AbstractBeanField<Object, Objec
 	@Override
 	protected Object convert(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {
 
-		System.err.println("Cadena Sin Parsear -> " + value);
+//		System.err.println("Cadena Sin Parsear -> " + value);
 		String[] parts = value.split("-");
 		String Mes = parts[0];
 		String Año = parts[1];
-		System.err.println("Cadena -> Año " + Año);
-		System.err.println("Cadena -> Mes " + Mes);
+//		System.err.println("Cadena -> Año " + Año);
+//		System.err.println("Cadena -> Mes " + Mes);
 		DateTimeFormatter parser = DateTimeFormatter.ofPattern("MMM").withLocale(Locale.ENGLISH);
 		TemporalAccessor accessor = parser.parse(Mes);
 		Month monthFromInt = Month.of(accessor.get(ChronoField.MONTH_OF_YEAR));
 
 		LocalDate date = LocalDate.of(Integer.valueOf(Año), monthFromInt, 1);
 
-		System.err.println("LocalDate parseado -> " + date);
+//		System.err.println("LocalDate parseado -> " + date);
+
+//		String formattedDate = date.format(DateTimeFormatter.ofPattern("MMM-yyyy", Locale.ENGLISH)).toUpperCase();
+
+//		System.err.println("-----Marshaller " + formattedDate);
+//
+//		LocalDate localDate = LocalDate.parse(formattedDate);
+//
+//		System.err.println(localDate + "ddddddddddddddsdsd");
 
 		return date;
 	}

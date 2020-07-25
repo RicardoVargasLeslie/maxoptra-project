@@ -1,15 +1,11 @@
 package com.imricki.maxoptra.dto;
 
-import com.imricki.maxoptra.converter.LocalDateToStringConverter;
-import com.opencsv.bean.CsvCustomBindByName;
-
 public class BankDetailDto {
 
 	private String bank;
 
 	private String cardNumber;
 
-	@CsvCustomBindByName(column = "Expiry date", converter = LocalDateToStringConverter.class)
 	private String expirydate;
 
 	public BankDetailDto() {
