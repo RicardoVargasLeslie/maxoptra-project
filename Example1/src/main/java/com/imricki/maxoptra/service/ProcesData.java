@@ -2,9 +2,7 @@ package com.imricki.maxoptra.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -18,13 +16,13 @@ public class ProcesData implements BankService {
 	@Override
 	public List<BankDetail> sortByExpiringDate(File csvFile) throws IOException {
 
+		System.err.println("Innnnnnnnnnnnn");
 		List<BankDetail> list = DataUtils.csvToDetailsWithHeaders(csvFile);
 
-		List<LocalDate> dates = new ArrayList<LocalDate>();
+		list.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
 
-		Collections.sort(dates, Collections.reverseOrder());
-
-		return null;
+		list.forEach(System.out::print);
+		return list;
 	}
 
 }
