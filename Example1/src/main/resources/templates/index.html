@@ -50,11 +50,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each="user, i : ${users}">
+						<tr th:each="bankDetailDto, i : ${bankDetailDtos}">
 							<th scope="row" th:text="${i.index + 1}"></th>
-							<td th:text="${user.id}"></td>
-							<td th:text="${user.name}"></td>
-							<td th:text="${user.email}"></td>
+							<td th:text="${bankDetailDto.bank}"></td>
+							<td th:text="${bankDetailDto.cardNumber}"></td>
+							<td th:text="${bankDetailDto.expirydate}"></td>
 						</tr>
 					</tbody>
 				</table>
