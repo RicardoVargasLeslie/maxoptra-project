@@ -22,16 +22,16 @@ public class BankRestController {
 	@PostMapping("/upload-csv-file")
 	public String uploadCSVFile(@RequestParam("file") MultipartFile file, Model model) {
 
-		// validate file
-		if (file.isEmpty()) {
-			model.addAttribute("message", "Please select a CSV file to upload.");
-			model.addAttribute("status", false);
-		} else {
-			// save users list on model
-			model.addAttribute("users", users);
-			model.addAttribute("status", true);
-
-		}
+//		// validate file
+//		if (file.isEmpty()) {
+//			model.addAttribute("message", "Please select a CSV file to upload.");
+//			model.addAttribute("status", false);
+//		} else {
+//			// save users list on model
+//			model.addAttribute("users", users);
+//			model.addAttribute("status", true);
+//
+//		}
 
 		return "file-upload-status";
 	}

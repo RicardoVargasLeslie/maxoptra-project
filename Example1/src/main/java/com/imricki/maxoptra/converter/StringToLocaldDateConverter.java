@@ -42,7 +42,7 @@ public final class StringToLocaldDateConverter extends AbstractBeanField<Object,
 		LOGGER.info("Call() ----> convert()");
 		String[] parts = value.split("-");
 		String month = parts[0];
-		String s = parts[1];
+		String year = parts[1];
 		DateTimeFormatter parser = DateTimeFormatter.ofPattern("MMM").withLocale(Locale.ENGLISH);
 		TemporalAccessor accessor = parser.parse(month);
 		Month monthFromInt = Month.of(accessor.get(ChronoField.MONTH_OF_YEAR));
