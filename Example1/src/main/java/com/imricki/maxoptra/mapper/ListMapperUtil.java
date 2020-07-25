@@ -8,6 +8,12 @@ import com.imricki.maxoptra.dto.BankDetailDto;
 import com.imricki.maxoptra.model.BankDetail;
 import com.imricki.maxoptra.utils.DataUtil;
 
+/**
+ * ListMapperUtil mapps the model domain object with the Dto Object.
+ * 
+ * @author Ricardo Vargas
+ * @version 1.0
+ */
 public final class ListMapperUtil {
 
 	private static final Logger LOGGER = Logger.getLogger(ListMapperUtil.class.getName());
@@ -16,7 +22,13 @@ public final class ListMapperUtil {
 
 	}
 
-	public static List<BankDetailDto> mapLists(List<BankDetail> listFromCsv) {
+	/**
+	 * Map the model domain object with the Dto Object.
+	 *
+	 * @param listFromCsv the list from csv
+	 * @return the the Dto list to send to the view
+	 */
+	public static List<BankDetailDto> map(List<BankDetail> listFromCsv) {
 
 		LOGGER.info("Call() ----> mapLists()");
 

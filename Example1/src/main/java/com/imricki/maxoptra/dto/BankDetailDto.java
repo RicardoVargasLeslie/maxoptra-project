@@ -1,5 +1,12 @@
 package com.imricki.maxoptra.dto;
 
+/**
+ * BankDetailDto is a Data Transfer Object that is sent to the View to show the
+ * data.
+ * 
+ * @author Ricardo Vargas
+ * @version 1.0
+ */
 public class BankDetailDto {
 
 	private String bank;

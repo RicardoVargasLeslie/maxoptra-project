@@ -13,11 +13,24 @@ import com.imricki.maxoptra.dto.BankDetailDto;
 import com.imricki.maxoptra.mapper.ListMapperUtil;
 import com.imricki.maxoptra.model.BankDetail;
 
+/**
+ * ProcesData is the implementation of BankDetailService interface.
+ * 
+ * @author Ricardo Vargas
+ * @version 1.0
+ */
 @Service
 public class ProcesData implements BankDetailService {
 
 	private static final Logger LOGGER = Logger.getLogger(ProcesData.class.getName());
 
+	/**
+	 * Process list.
+	 *
+	 * @param the csv file
+	 * @return the list of Dto to return to the view
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	@Override
 	public List<BankDetailDto> ProcessList(File csvFile) throws IOException {
 
@@ -25,7 +38,7 @@ public class ProcesData implements BankDetailService {
 		List<BankDetail> listFromCsv = ReaderUtil.csvToDetailsWithHeaders(csvFile);
 		listFromCsv.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
 
-		return ListMapperUtil.mapLists(listFromCsv);
+		return ListMapperUtil.map(listFromCsv);
 
 	}
 

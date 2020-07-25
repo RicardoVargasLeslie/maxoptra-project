@@ -6,6 +6,12 @@ import com.imricki.maxoptra.converter.StringToLocaldDateConverter;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
 
+/**
+ * BankDetail is the domain object that represents the bank details.
+ * 
+ * @author Ricardo Vargas
+ * @version 1.0
+ */
 public class BankDetail {
 
 	@CsvBindByName(column = "Bank")

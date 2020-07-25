@@ -12,6 +12,13 @@ import com.opencsv.bean.AbstractBeanField;
 import com.opencsv.exceptions.CsvConstraintViolationException;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 
+/**
+ * StringToLocaldDateConverter permits the Marshalling from String to LocalDate.
+ * 
+ * @author Ricardo Vargas
+ * @version 1.0
+ *
+ */
 public final class StringToLocaldDateConverter extends AbstractBeanField<Object, Object> {
 
 	private static final Logger LOGGER = Logger.getLogger(StringToLocaldDateConverter.class.getName());
@@ -20,6 +27,15 @@ public final class StringToLocaldDateConverter extends AbstractBeanField<Object,
 
 	}
 
+	/**
+	 * Convert permits to build a LocalDate froma String
+	 *
+	 * @param initial String to build the LocalDate
+	 * @return a LocalDate from a String
+	 * @throws CsvDataTypeMismatchException    the csv data type mismatch exception
+	 * @throws CsvConstraintViolationException the csv constraint violation
+	 *                                         exception
+	 */
 	@Override
 	protected Object convert(String value) throws CsvDataTypeMismatchException, CsvConstraintViolationException {
 
