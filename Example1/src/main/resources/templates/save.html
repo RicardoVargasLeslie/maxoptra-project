@@ -17,18 +17,18 @@
 		<form action="#" th:action="@{/save}" th:object="${bankDetailDto}"
 			method="post">
 			<div class="form-group">
-				<label for="nombre">Bank</label> <input type="text"
+				<label for="nombre">bank</label> <input type="text"
 					class="form-control" id="nombre" th:field="*{bank}" name="bank">
 			</div>
-			
+
 			<div class="form-group">
-				<label for="nombre">Card Number</label> <input type="text"
+				<label for="nombre">cardNumber</label> <input type="text"
 					class="form-control" id="cardNumber" th:field="*{cardNumber}"
 					name="cardNumber">
 			</div>
 
 			<div class="form-group">
-				<label for="nombre">Expiry date</label> <input type="text"
+				<label for="nombre">Dirección</label> <input type="text"
 					class="form-control" id="expirydate" th:field="*{expirydate}"
 					name="expirydate">
 			</div>
@@ -38,25 +38,27 @@
 		<div>
 			<a href="./index" th:href="@{/}" class="btn btn-primary">Back</a>
 		</div>
+
 		<!--display users list-->
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Bank</th>
-							<th scope="col">Card number</th>
-							<th scope="col">Expiry date</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="bankDetailDto, i : ${details}">
-							<th scope="row" th:text="${i.index + 1}"></th>
-							<td th:text="${bankDetailDto.bank}"></td>
-							<td th:text="${bankDetailDto.cardNumber}"></td>
-							<td th:text="${bankDetailDto.expirydate}"></td>
-						</tr>
-					</tbody>
-				</table>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Bank</th>
+					<th scope="col">Card number</th>
+					<th scope="col">Expiry date</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="bankDetailDto, i : ${details}">
+					<th scope="row" th:text="${i.index + 1}"></th>
+					<td th:text="${bankDetailDto.bank}"></td>
+					<td th:text="${bankDetailDto.cardNumber}"></td>
+					<td th:text="${bankDetailDto.expirydate}"></td>
+				</tr>
+			</tbody>
+		</table>
+
 	</div>
 </body>
 </html>
