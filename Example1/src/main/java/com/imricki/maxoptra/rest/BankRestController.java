@@ -57,7 +57,7 @@ public class BankRestController {
 	@RequestMapping(value = "/save")
 	public String save(BankDetailDto bankDetailDto, Model model) {
 
-		model.addAttribute("bankDetailDto", bankDetailDto);
+		model.addAttribute("details", bankDetailDto);
 
 		System.err.println("holaaaaa");
 		return "save";
