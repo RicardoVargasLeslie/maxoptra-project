@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Bank Details</title>
+<title>Personas</title>
 
 <!-- Bootstrap CSS -->
 <link href="../static/css/bootstrap.css" rel="stylesheet"
@@ -15,23 +15,25 @@
 		<form action="#" th:action="@{/save}" th:object="${bankDetailDto}"
 			method="post">
 			<div class="form-group">
-				<label for="nombre">Bank</label> <input type="text"
-					class="form-control" id="bank" th:field="*{bank}" name="bank">
+				<label for="nombre">bank</label> <input type="text"
+					class="form-control" id="nombre" th:field="*{bank}" name="bank">
 			</div>
+			
 			<div class="form-group">
-				<label for="nombre">Card number</label> <input type="text"
+				<label for="nombre">cardNumber</label> <input type="text"
 					class="form-control" id="cardNumber" th:field="*{cardNumber}"
 					name="cardNumber">
 			</div>
 
 			<div class="form-group">
-				<label for="nombre">Expiry date</label> <input type="text"
+				<label for="nombre">Dirección</label> <input type="text"
 					class="form-control" id="expirydate" th:field="*{expirydate}"
 					name="expirydate">
 			</div>
 
 			<button type="submit" class="btn btn-success">Save</button>
 		</form>
+		
 	</div>
 </body>
 </html>

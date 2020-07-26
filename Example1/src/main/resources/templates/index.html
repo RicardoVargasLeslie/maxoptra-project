@@ -11,12 +11,11 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
-
 	<div class="container py-5">
 		<div class="row">
 			<div class="col-6 mx-auto">
 				<h1>Upload CSV</h1>
-				<form method="POST" th:action="@{/upload-csv-file}"
+				<form method="POST" th:action="@{/upload}"
 					enctype="multipart/form-data">
 					<div class="form-group mt-3">
 						<label for="file">Select a CSV file</label> <input type="file"
@@ -27,6 +26,7 @@
 			</div>
 		</div>
 	</div>
+	
 
 	<div class="container py-5">
 		<div class="row">
@@ -34,9 +34,7 @@
 				<h1>File Upload Status</h1>
 				<!--display error if any-->
 
-				
-			
-
+		
 				<!--display users list-->
 				<table class="table table-striped">
 					<thead>
@@ -57,6 +55,9 @@
 					</tbody>
 				</table>
 			</div>
+		</div>
+		<div>
+			<a href="./save" class="btn btn-primary">Agregar</a>
 		</div>
 	</div>
 </body>

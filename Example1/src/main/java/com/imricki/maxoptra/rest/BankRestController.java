@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,10 +32,9 @@ public class BankRestController {
 		return "index";
 	}
 
-	@PostMapping("/upload-csv-file")
+	@PostMapping("/upload")
 	public String uploadCSVFile(@RequestParam("file") MultipartFile file, Model model) throws IOException {
 
-		// validate file
 		if (file.isEmpty()) {
 			model.addAttribute("message", "Please select a CSV file to upload.");
 			model.addAttribute("disabled", 1);
@@ -52,6 +52,15 @@ public class BankRestController {
 		}
 
 		return "index";
+	}
+
+	@RequestMapping(value = "/save")
+	public String save(BankDetailDto bankDetailDto, Model model) {
+
+		model.addAttribute("bankDetailDto", bankDetailDto);
+
+		System.err.println("holaaaaa");
+		return "save";
 	}
 
 }
