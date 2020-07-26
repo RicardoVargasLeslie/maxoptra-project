@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.imricki.maxoptra.csvreader.ReaderUtil;
 import com.imricki.maxoptra.dto.BankDetailDto;
 import com.imricki.maxoptra.service.ProcesData;
 
@@ -33,33 +34,24 @@ public class BankRestController {
 	@PostMapping("/upload-csv-file")
 	public String uploadCSVFile(@RequestParam("file") MultipartFile file, Model model) throws IOException {
 
-//		// validate file
-//		if (file.isEmpty()) {
-//			model.addAttribute("message", "Please select a CSV file to upload.");
-//			model.addAttribute("status", false);
-//		} else {
-//			// save users list on model
+		// validate file
+		if (file.isEmpty()) {
+			model.addAttribute("message", "Please select a CSV file to upload.");
+			model.addAttribute("disabled", 1);
+		} else {
 
-		List<BankDetailDto> details = new ArrayList<>();
+			List<BankDetailDto> details = new ArrayList<>();
 
-		details.forEach(System.out::println);
+			details.forEach(System.out::println);
 
-		File f = convert(file);
-		details = procesData.ProcessList(f);
+			File f = ReaderUtil.convert(file);
+			details = procesData.ProcessList(f);
 
-		model.addAttribute("details", details);
-//			model.addAttribute("status", true);
+			model.addAttribute("details", details);
 //
-//		}
+		}
 
 		return "index";
 	}
 
-	public File convert(MultipartFile file) throws IOException {
-		File convFile = new File(file.getOriginalFilename());
-		file.transferTo(convFile);
-
-		System.err.println(convFile.getName() + " NOMBREEEEEEEE");
-		return convFile;
-	}
 }

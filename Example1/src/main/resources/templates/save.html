@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Bank Details</title>
+
+<!-- Bootstrap CSS -->
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<br>
+		<h2>Add Details</h2>
+		<form action="#" th:action="@{/save}" th:object="${bankDetailDto}"
+			method="post">
+			<div class="form-group">
+				<label for="nombre">Bank</label> <input type="text"
+					class="form-control" id="bank" th:field="*{bank}" name="bank">
+			</div>
+			<div class="form-group">
+				<label for="nombre">Card number</label> <input type="text"
+					class="form-control" id="cardNumber" th:field="*{cardNumber}"
+					name="cardNumber">
+			</div>
+
+			<div class="form-group">
+				<label for="nombre">Expiry date</label> <input type="text"
+					class="form-control" id="expirydate" th:field="*{expirydate}"
+					name="expirydate">
+			</div>
+
+			<button type="submit" class="btn btn-success">Save</button>
+		</form>
+	</div>
+</body>
+</html>

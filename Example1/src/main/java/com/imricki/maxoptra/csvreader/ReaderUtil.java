@@ -7,6 +7,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.logging.Logger;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.imricki.maxoptra.model.BankDetail;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -54,4 +56,11 @@ public final class ReaderUtil {
 
 	}
 
+	public static File convert(MultipartFile file) throws IOException {
+		File convFile = new File(file.getOriginalFilename());
+		file.transferTo(convFile);
+
+		System.err.println(convFile.getName() + " NOMBREEEEEEEE");
+		return convFile;
+	}
 }
