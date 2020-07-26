@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,7 +57,7 @@ public class BankRestController {
 	}
 
 	@RequestMapping(value = "/save")
-	public String save(BankDetailDto bankDetailDto, Model model) {
+	public String save(@Valid BankDetailDto bankDetailDto, Model model) {
 
 		model.addAttribute("details", bankDetailDto);
 
