@@ -20,12 +20,12 @@ import com.imricki.maxoptra.dto.BankDetailDto;
 import com.imricki.maxoptra.service.ProcesData;
 
 @Controller
-public class BankRestController {
+public class BankController {
 
 	@Autowired
 	private ProcesData procesDataService;
 
-	private static final Logger LOGGER = Logger.getLogger(BankRestController.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(BankController.class.getName());
 
 	@GetMapping("/addForm")
 	public String showAddForm(Model model) {
