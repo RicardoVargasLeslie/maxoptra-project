@@ -21,44 +21,48 @@
 						<label for="file">Select a CSV file</label> <input type="file"
 							name="file" class="form-control-file" id="file" accept=".csv">
 					</div>
-					<button type="submit" class="btn btn-primary" th:disabled="${disable eq 0}">Import Data</button>
+					<button type="submit" class="btn btn-primary"
+						th:disabled="${disable eq 0}">Import Data</button>
 				</form>
 			</div>
 		</div>
 	</div>
-	
+	<div class="col-6 mx-auto">
+		<h2>Add Details</h2>
+		<a href="/addForm" class="btn btn-primary"> Add Student</a>
 
-	<div class="container py-5">
-		<div class="row">
-			<div class="col-10 mx-auto">
-				<h1>File Upload Status</h1>
-				<!--display error if any-->
+		<div class="container py-5">
+			<div class="row">
+				<div class="col-10 mx-auto">
+					<h1>Table With Data</h1>
+					<!--display error if any-->
 
-		
-				<!--display users list-->
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th scope="col">#</th>
-							<th scope="col">Bank</th>
-							<th scope="col">Card number</th>
-							<th scope="col">Expiry date</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr th:each="bankDetailDto, i : ${details}">
-							<th scope="row" th:text="${i.index + 1}"></th>
-							<td th:text="${bankDetailDto.bank}"></td>
-							<td th:text="${bankDetailDto.cardNumber}"></td>
-							<td th:text="${bankDetailDto.expirydate}"></td>
-						</tr>
-					</tbody>
-				</table>
+
+					<!--display users list-->
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Bank</th>
+								<th scope="col">Card number</th>
+								<th scope="col">Expiry date</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="bankDetailDto, i : ${details}">
+								<th scope="row" th:text="${i.index + 1}"></th>
+								<td th:text="${bankDetailDto.bank}"></td>
+								<td th:text="${bankDetailDto.cardNumber}"></td>
+								<td th:text="${bankDetailDto.expirydate}"></td>
+							</tr>
+						</tbody>
+					</table>
+
+
+				</div>
 			</div>
 		</div>
-		<div>
-			<a href="./save" th:href="@{/save}" class="btn btn-primary">New</a>
-		</div>
 	</div>
+
 </body>
 </html>

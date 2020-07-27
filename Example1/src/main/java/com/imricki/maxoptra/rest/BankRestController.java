@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +30,13 @@ public class BankRestController {
 
 	private static final Logger LOGGER = Logger.getLogger(BankRestController.class.getName());
 
-	@GetMapping("/")
+	@GetMapping("/addForm")
+	public String showAddUpForm(Model model) {
+		model.addAttribute("bankDetailDto", new BankDetailDto());
+		return "new";
+	}
+
+	@RequestMapping(value = "/")
 	public String index() {
 		return "index";
 	}
@@ -47,7 +54,7 @@ public class BankRestController {
 			details.forEach(System.out::println);
 
 			File f = ReaderUtil.convert(file);
-			details = procesData.ProcessList(f);
+			details = procesData.ProcessCsv(f);
 
 			model.addAttribute("details", details);
 //
@@ -57,12 +64,17 @@ public class BankRestController {
 	}
 
 	@RequestMapping(value = "/save")
-	public String save(@Valid BankDetailDto bankDetailDto, Model model) {
+	public String save(@Valid BankDetailDto bankDetailDto, BindingResult bindingResult, Model model) {
 
-		model.addAttribute("details", bankDetailDto);
+		if (bindingResult.hasErrors()) {
 
+			System.err.println("Hayy erroresssssss");
+			return "new";
+		}
+
+		model.addAttribute("bankDetailDto", bankDetailDto);
 		System.err.println("holaaaaa");
-		return "save";
+		return "redirect:/";
 	}
 
 }

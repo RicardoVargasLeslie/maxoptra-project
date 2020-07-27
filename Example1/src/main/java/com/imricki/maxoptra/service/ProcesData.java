@@ -2,6 +2,7 @@ package com.imricki.maxoptra.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -24,15 +25,17 @@ public class ProcesData implements BankDetailService {
 
 	private static final Logger LOGGER = Logger.getLogger(ProcesData.class.getName());
 
+	private List<BankDetailDto> detailsList = new ArrayList<>();
+
 	/**
 	 * Process list.
 	 *
-	 * @param the csv file
+	 * @param csvFile the csv file
 	 * @return the list of Dto to return to the view
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	@Override
-	public List<BankDetailDto> ProcessList(File csvFile) throws IOException {
+	public List<BankDetailDto> ProcessCsv(File csvFile) throws IOException {
 
 		LOGGER.info("Call() ----> ProcessList()");
 		List<BankDetail> listFromCsv = ReaderUtil.csvToDetailsWithHeaders(csvFile);
@@ -40,6 +43,29 @@ public class ProcesData implements BankDetailService {
 
 		return ListMapperUtil.map(listFromCsv);
 
+	}
+
+	/**
+	 * Adds a new object to the list
+	 *
+	 * @param newDetail the new detail
+	 */
+	@Override
+	public void addDetails(BankDetailDto newDetail) {
+
+		detailsList.add(newDetail);
+
+	}
+
+	/**
+	 * Gets the all the dtos
+	 *
+	 * @return the all
+	 */
+	@Override
+	public List<BankDetailDto> getAll() {
+
+		return detailsList;
 	}
 
 }

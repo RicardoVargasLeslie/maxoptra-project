@@ -1,7 +1,8 @@
 package com.imricki.maxoptra.dto;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 /**
  * BankDetailDto is a Data Transfer Object that is sent to the View to show the
@@ -12,16 +13,15 @@ import javax.validation.constraints.NotNull;
  */
 public class BankDetailDto {
 
-	@NotNull
-	@NotEmpty
+	@NotEmpty(message = "Bank Cant Be Blank")
 	private String bank;
 
-	@NotNull
-	@NotEmpty
+	@NotEmpty(message = "Bank Cant Be Blank")
+	@Size(max = 19, min = 1)
 	private String cardNumber;
 
-	@NotNull
-	@NotEmpty
+	@NotEmpty(message = "Bank Cant Be Blank")
+	@Pattern(regexp = "(\\w{3})-(\\d{*})")
 	private String expirydate;
 
 	public BankDetailDto() {

@@ -21,6 +21,10 @@ public interface BankDetailService {
 	 * @return the list with all data to the view
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	List<BankDetailDto> ProcessList(File csvFile) throws IOException;
+	List<BankDetailDto> ProcessCsv(File csvFile) throws IOException;
+
+	void addDetails(BankDetailDto newDetail);
+
+	List<BankDetailDto> getAll();
 
 }

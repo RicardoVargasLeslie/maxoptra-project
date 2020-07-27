@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Add User</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+
+	<h3>Add</h3>
+
+	<div class="card">
+		<div class="card-body">
+			<div class="col-md-10">
+				<form action="#" th:action="@{/save}" th:object="${bankDetailDto}"
+					method="post">
+					<table>
+
+						<tr>
+							<td>Bank:</td>
+							<td><input type="text" th:field="*{bank}" /></td>
+							<td th:if="${#fields.hasErrors('bank')}" th:errors="*{bank}">Age
+								Error</td>
+						</tr>
+						<tr>
+							<td>Card Number:</td>
+							<td><input type="text" th:field="*{cardNumber}" /></td>
+							<td th:if="${#fields.hasErrors('cardNumber')}"
+								th:errors="*{cardNumber}">Card Number Error</td>
+						</tr>
+						<tr>
+							<td>Expiry Date:</td>
+							<td><input type="text" th:field="*{expirydate}" /></td>
+							<td th:if="${#fields.hasErrors('expirydate')}"
+								th:errors="*{expirydate}">Expiry Date Error</td>
+						</tr>
+						<tr>
+							<td><button type="submit">Submit</button></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>
