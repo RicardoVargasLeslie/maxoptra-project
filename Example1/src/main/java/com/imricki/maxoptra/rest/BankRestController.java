@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -36,7 +35,7 @@ public class BankRestController {
 		return "new";
 	}
 
-	@RequestMapping(value = "/")
+	@GetMapping(value = "/")
 	public String index(Model model) {
 
 		LOGGER.info("Call() ----> index()");
@@ -65,7 +64,7 @@ public class BankRestController {
 		return "index";
 	}
 
-	@RequestMapping(value = "/save")
+	@PostMapping(value = "/save")
 	public String save(@Valid BankDetailDto bankDetailDto, BindingResult bindingResult, Model model) {
 
 		LOGGER.info("Call() ----> save()");

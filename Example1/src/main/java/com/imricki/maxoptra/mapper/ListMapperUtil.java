@@ -8,19 +8,19 @@ import com.imricki.maxoptra.dto.BankDetailDto;
 import com.imricki.maxoptra.model.BankDetail;
 import com.imricki.maxoptra.utils.DataUtil;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * ListMapperUtil mapps the model domain object with the Dto Object.
  * 
  * @author Ricardo Vargas
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ListMapperUtil {
 
 	private static final Logger LOGGER = Logger.getLogger(ListMapperUtil.class.getName());
-
-	private ListMapperUtil() {
-
-	}
 
 	/**
 	 * Map the model domain object with the Dto Object.

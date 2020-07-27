@@ -13,6 +13,9 @@ import com.imricki.maxoptra.model.BankDetail;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * ReaderUtil permits to read the CSV file and Marshall it to beans.
  * 
@@ -20,15 +23,12 @@ import com.opencsv.bean.CsvToBeanBuilder;
  * @version 1.0
  * 
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ReaderUtil {
 
 	private static final Logger LOGGER = Logger.getLogger(ReaderUtil.class.getName());
 
 	private static final char SEPARATOR = ',';
-
-	private ReaderUtil() {
-
-	}
 
 	/**
 	 * Csv to details with headers.
@@ -40,8 +40,6 @@ public final class ReaderUtil {
 	public static List<BankDetail> csvToDetailsWithHeaders(File csvFile) throws IOException {
 
 		LOGGER.info("Call() ----> csvToDetailsWithHeaders()");
-
-		System.err.println(csvFile.getName());
 
 		FileReader reader = new FileReader(csvFile, StandardCharsets.UTF_8);
 
@@ -57,10 +55,15 @@ public final class ReaderUtil {
 	}
 
 	public static File convert(MultipartFile file) throws IOException {
-		File convFile = new File(file.getOriginalFilename());
-		file.transferTo(convFile);
 
-		System.err.println(convFile.getName() + " NOMBREEEEEEEE");
+		File convFile = new File("");
+
+		if (file != null) {
+
+			convFile = new File(file.getOriginalFilename());
+			file.transferTo(convFile);
+		}
+
 		return convFile;
 	}
 }

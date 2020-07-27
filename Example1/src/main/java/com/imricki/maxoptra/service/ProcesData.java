@@ -39,9 +39,13 @@ public class ProcesData implements BankDetailService {
 	public List<BankDetailDto> ProcessCsv(File csvFile) throws IOException {
 
 		LOGGER.info("Call() ----> ProcessList()");
-		List<BankDetail> listFromCsv = ReaderUtil.csvToDetailsWithHeaders(csvFile);
-		listFromCsv.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
+		List<BankDetail> listFromCsv = new ArrayList<>();
 
+		if (csvFile != null) {
+			listFromCsv = ReaderUtil.csvToDetailsWithHeaders(csvFile);
+			listFromCsv.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
+
+		}
 		return ListMapperUtil.map(listFromCsv);
 
 	}
@@ -54,9 +58,11 @@ public class ProcesData implements BankDetailService {
 	@Override
 	public BankDetailDto addDetails(BankDetailDto newDetail) {
 
-		newDetail.setCardNumber(DataUtil.ofuscateCardNumber(newDetail.getCardNumber()));
+		if (newDetail != null) {
+			newDetail.setCardNumber(DataUtil.ofuscateCardNumber(newDetail.getCardNumber()));
+			detailsList.add(newDetail);
+		}
 
-		detailsList.add(newDetail);
 		return newDetail;
 
 	}

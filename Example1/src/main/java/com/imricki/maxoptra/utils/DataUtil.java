@@ -5,19 +5,19 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * DataUtil is a helper class to manipulate Strings.
  * 
  * @author Ricardo Vargas
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class DataUtil {
 
 	private static final Logger LOGGER = Logger.getLogger(DataUtil.class.getName());
-
-	private DataUtil() {
-
-	}
 
 	/**
 	 * Ofuscate card number.
