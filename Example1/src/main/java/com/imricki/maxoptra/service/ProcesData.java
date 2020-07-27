@@ -13,6 +13,7 @@ import com.imricki.maxoptra.csvreader.ReaderUtil;
 import com.imricki.maxoptra.dto.BankDetailDto;
 import com.imricki.maxoptra.mapper.ListMapperUtil;
 import com.imricki.maxoptra.model.BankDetail;
+import com.imricki.maxoptra.utils.DataUtil;
 
 /**
  * ProcesData is the implementation of BankDetailService interface.
@@ -51,9 +52,12 @@ public class ProcesData implements BankDetailService {
 	 * @param newDetail the new detail
 	 */
 	@Override
-	public void addDetails(BankDetailDto newDetail) {
+	public BankDetailDto addDetails(BankDetailDto newDetail) {
+
+		newDetail.setCardNumber(DataUtil.ofuscateCardNumber(newDetail.getCardNumber()));
 
 		detailsList.add(newDetail);
+		return newDetail;
 
 	}
 
@@ -64,6 +68,8 @@ public class ProcesData implements BankDetailService {
 	 */
 	@Override
 	public List<BankDetailDto> getAll() {
+
+		detailsList.sort(Comparator.comparing(BankDetailDto::getExpirydate, Comparator.reverseOrder()));
 
 		return detailsList;
 	}

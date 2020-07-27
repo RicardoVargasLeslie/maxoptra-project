@@ -2,8 +2,6 @@ package com.imricki.maxoptra.rest;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import javax.validation.Valid;
@@ -26,38 +24,42 @@ import com.imricki.maxoptra.service.ProcesData;
 public class BankRestController {
 
 	@Autowired
-	private ProcesData procesData;
+	private ProcesData procesDataService;
 
 	private static final Logger LOGGER = Logger.getLogger(BankRestController.class.getName());
 
 	@GetMapping("/addForm")
-	public String showAddUpForm(Model model) {
+	public String showAddForm(Model model) {
+		LOGGER.info("showAddUpForm() ----> index()");
+
 		model.addAttribute("bankDetailDto", new BankDetailDto());
 		return "new";
 	}
 
 	@RequestMapping(value = "/")
-	public String index() {
+	public String index(Model model) {
+
+		LOGGER.info("Call() ----> index()");
+
+		model.addAttribute("details", procesDataService.getAll());
+
 		return "index";
 	}
 
 	@PostMapping("/upload")
-	public String uploadCSVFile(@RequestParam("file") MultipartFile file, Model model) throws IOException {
+	public String uploadCSVFile(@RequestParam("file") MultipartFile multiPartFile, Model model) throws IOException {
 
-		if (file.isEmpty()) {
+		LOGGER.info("Call() ----> upload()");
+
+		if (multiPartFile.isEmpty()) {
 			model.addAttribute("message", "Please select a CSV file to upload.");
 			model.addAttribute("disabled", 1);
 		} else {
 
-			List<BankDetailDto> details = new ArrayList<>();
+			File file = ReaderUtil.convert(multiPartFile);
 
-			details.forEach(System.out::println);
+			model.addAttribute("details", procesDataService.ProcessCsv(file));
 
-			File f = ReaderUtil.convert(file);
-			details = procesData.ProcessCsv(f);
-
-			model.addAttribute("details", details);
-//
 		}
 
 		return "index";
@@ -66,14 +68,15 @@ public class BankRestController {
 	@RequestMapping(value = "/save")
 	public String save(@Valid BankDetailDto bankDetailDto, BindingResult bindingResult, Model model) {
 
+		LOGGER.info("Call() ----> save()");
+
 		if (bindingResult.hasErrors()) {
 
-			System.err.println("Hayy erroresssssss");
 			return "new";
 		}
 
-		model.addAttribute("bankDetailDto", bankDetailDto);
-		System.err.println("holaaaaa");
+		model.addAttribute("bankDetailDto", procesDataService.addDetails(bankDetailDto));
+
 		return "redirect:/";
 	}
 

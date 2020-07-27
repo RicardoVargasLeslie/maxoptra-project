@@ -23,7 +23,7 @@ public interface BankDetailService {
 	 */
 	List<BankDetailDto> ProcessCsv(File csvFile) throws IOException;
 
-	void addDetails(BankDetailDto newDetail);
+	BankDetailDto addDetails(BankDetailDto newDetail);
 
 	List<BankDetailDto> getAll();
 

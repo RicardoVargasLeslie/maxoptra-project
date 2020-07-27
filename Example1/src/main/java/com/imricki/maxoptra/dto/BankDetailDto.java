@@ -18,11 +18,11 @@ public class BankDetailDto {
 
 	@NotEmpty(message = "Bank Cant Be Blank")
 	@Size(max = 19, min = 1)
-	@Pattern(regexp = "(\\d{4})-(\\d{4})-(\\d{4})-.*?", message = "Incorrect Format")
+	@Pattern(regexp = "(\\d{4})-(\\d{4})-(\\d{4})-.*?", message = "Incorrect Format: 5601-2345-3446-xxxx")
 	private String cardNumber;
 
 	@NotEmpty(message = "Bank Cant Be Blank")
-	@Pattern(regexp = "\\b(\\w{3})-(\\d{4})", message = "Incorrect Format")
+	@Pattern(regexp = "\\b(\\w{3})-(\\d{4})", message = "Incorrect Format: Nov-2017")
 	private String expirydate;
 
 	public BankDetailDto() {
