@@ -7,7 +7,6 @@
 
   <h2 align="center">MaxOptra</h2>
 
-
 > Test for Maxopra. :speak_no_evil:
 >
 > 
@@ -34,11 +33,28 @@ To set up the App follow these steps:
 
 OS X - Linux - Windows
 
+For  Example1 (Spring Project)
+
 ```sh
 git clone https://github.com/RicardoVargasLeslie/maxoptra-project.git
 cd maxoptra-project
+cd Example1
 ./mvnw spring-boot:run
 ```
+
+
+
+For Example2(Console)
+
+```sh
+git clone https://github.com/RicardoVargasLeslie/maxoptra-project.git
+cd maxoptra-project
+cd Example2
+run to compile javac DemoFile.java
+run java DemoFile to launch
+```
+
+
 
 
 
