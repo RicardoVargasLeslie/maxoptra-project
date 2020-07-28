@@ -47,9 +47,15 @@ import com.imricki.maxoptra.service.ProcesData;
 	void shouldAddAnewDetail() {
 		
 		// Given ----------------------------//
-		when(dtoMock.getBank()).thenReturn("HSBC Canada");
-		when(dtoMock.getCardNumber()).thenReturn("5601-2345-3446-5678");
-		when(dtoMock.getExpirydate()).thenReturn("Nov-2017");
+		
+		final String bankInput = "HSBC Canada";
+		final String cardNumberInput = "5601-2345-3446-5678";
+		final String expirydateInput = "Nov-2017";
+		
+		// ---------------------------------//
+		when(dtoMock.getBank()).thenReturn(bankInput);
+		when(dtoMock.getCardNumber()).thenReturn(cardNumberInput);
+		when(dtoMock.getExpirydate()).thenReturn(expirydateInput);
 		
 		// When ----------------------------//
 		service.addDetails(dtoMock);
