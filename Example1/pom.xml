@@ -14,7 +14,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Example1</name>
 	<description>Example 1 Module</description>
+	<developers>
+		<developer>
+			<name>Ricardo Vargas</name>
+		</developer>
+	</developers>
 
+	<!-- Default Properties -->
 	<properties>
 		<java.version>11</java.version>
 		<project.java.version>11</project.java.version>
@@ -26,21 +32,27 @@
 
 
 	<dependencies>
+		<!-- Data Validation -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+
+		<!-- Spring Web -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Spring DevTools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- Spring Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -53,28 +65,35 @@
 			</exclusions>
 		</dependency>
 
+		<!-- Thymeleaf Engine -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
+		<!-- Proces CSV Files -->
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>5.0</version>
 		</dependency>
 
+		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Junit Testing -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<version>5.3.1</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- Mockito Testing -->
 		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
@@ -84,7 +103,7 @@
 
 
 	</dependencies>
-
+	<!-- Maven Build -->
 	<build>
 		<plugins>
 			<plugin>
