@@ -67,19 +67,6 @@ import com.imricki.maxoptra.service.ProcesData;
 
 	}
 
-//		
-//		when(dto.getBank()).thenReturn("HSBC Canada");
-//		when(dto.getCardNumber()).thenReturn("5601-2345-3446-5678");
-//		when(dto.getExpirydate()).thenReturn("Nov-2017");
-////		
-//		service.addDetails(dto);
-//		list.add(dto);
-//		
-//		InOrder inOrder = Mockito.inOrder(mock, list);
-//		inOrder.verify(list).add(mock);
-//		inOrder.verifyNoMoreInteractions();
-
-	// }
 
 //	@Test
 //	void shouldDoNothinBadDetails() {
