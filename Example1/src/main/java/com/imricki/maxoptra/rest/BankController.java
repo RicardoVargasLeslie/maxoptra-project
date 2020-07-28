@@ -19,6 +19,11 @@ import com.imricki.maxoptra.csvreader.ReaderUtil;
 import com.imricki.maxoptra.dto.BankDetailDto;
 import com.imricki.maxoptra.service.ProcesData;
 
+/**
+ * BankController is the entry point to the API
+ * @author Ricardo Vargas
+ * @version 1.0
+ */
 @Controller
 public class BankController {
 
@@ -27,6 +32,11 @@ public class BankController {
 
 	private static final Logger LOGGER = Logger.getLogger(BankController.class.getName());
 
+	/**
+	 * Displays the form before inserting data
+	 * 
+	 * @return the form view
+	 */
 	@GetMapping("/addForm")
 	public String showAddForm(Model model) {
 		LOGGER.info("showAddUpForm() ----> index()");
@@ -35,6 +45,12 @@ public class BankController {
 		return "new";
 	}
 
+	/**
+	 * Base URL
+	 *
+	 * @param the lists of objects to load in the view
+	 * @return the main view
+	 */
 	@GetMapping(value = "/")
 	public String index(Model model) {
 
@@ -45,6 +61,14 @@ public class BankController {
 		return "index";
 	}
 
+	/**
+	 * Upload CSV file.
+	 *
+	 * @param the csv file to ipload
+	 * @param the model object to load the view
+	 * @return the upload view
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	@PostMapping("/upload")
 	public String uploadCSVFile(@RequestParam("file") MultipartFile multiPartFile, Model model) throws IOException {
 
@@ -64,6 +88,13 @@ public class BankController {
 		return "index";
 	}
 
+	/**
+	 * Save.
+	 *
+	 * @param bankDetailDto the object to be saved
+	 * @param bindingResult tests if there is errors
+	 * @return the save view
+	 */
 	@PostMapping(value = "/save")
 	public String save(@Valid BankDetailDto bankDetailDto, BindingResult bindingResult, Model model) {
 
