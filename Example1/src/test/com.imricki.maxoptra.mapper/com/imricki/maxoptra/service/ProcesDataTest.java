@@ -2,6 +2,9 @@ package com.imricki.maxoptra.service;
 
 import static org.mockito.Mockito.when;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
@@ -75,5 +78,38 @@ class ProcesDataTest {
 		Assert.assertEquals(service.getAllBankDetails(), listMock);
 
 	}
+
+	@Test
+	void shouldMapCsvToBean() throws IOException {
+
+		// Given ----------------------------//
+		final List<BankDetailDto> beanList = new ArrayList<>();
+
+		final BankDetailDto dt1 = new BankDetailDto("HSBC Canada", "xxxx-xxxx-xxxx-5678", "Nov-2017");
+		final BankDetailDto dt2 = new BankDetailDto("Royal Bank of Canada", "xxxx-xxxx-xxxx-2456", "Oct-2017");
+		final BankDetailDto dt3 = new BankDetailDto("American Express", "3786-7334-8965-345", "Dec-2018");
+		beanList.add(dt3);
+		beanList.add(dt1);
+		beanList.add(dt2);
+		final File csvFile = new File("test.csv");
+
+		// When ----------------------------//
+		Assert.assertEquals(service.processCsv(csvFile), beanList);
+
+	}
+
+//	public List<BankDetailDto> processCsv(File csvFile) throws IOException {
+//
+//		LOGGER.info("Call() ----> ProcessList()");
+//		List<BankDetail> listFromCsv = new ArrayList<>();
+//
+//		if (csvFile != null) {
+//			listFromCsv = ReaderUtil.csvToDetailsWithHeaders(csvFile);
+//			listFromCsv.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
+//
+//		}
+//		return ListMapperUtil.map(listFromCsv);
+//
+//	}
 
 }
