@@ -73,7 +73,7 @@ public class ProcesData implements BankDetailService {
 	 * @return the all
 	 */
 	@Override
-	public List<BankDetailDto> getAll() {
+	public List<BankDetailDto> getAllBankDetails() {
 
 		detailsList.sort(Comparator.comparing(BankDetailDto::getExpirydate, Comparator.reverseOrder()));
 

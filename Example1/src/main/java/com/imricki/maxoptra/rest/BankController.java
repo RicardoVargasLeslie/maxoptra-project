@@ -21,7 +21,7 @@ import com.imricki.maxoptra.service.ProcesData;
 
 /**
  * BankController is the entry point to the API
- * 
+ *
  * @author Ricardo Vargas
  * @version 1.0
  */
@@ -57,7 +57,7 @@ public class BankController {
 
 		LOGGER.info("Call() ----> index()");
 
-		model.addAttribute("details", procesDataService.getAll());
+		model.addAttribute("details", procesDataService.getAllBankDetails());
 
 		return "index";
 	}

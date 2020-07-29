@@ -25,6 +25,6 @@ public interface BankDetailService {
 
 	BankDetailDto addDetails(BankDetailDto newDetail);
 
-	List<BankDetailDto> getAll();
+	List<BankDetailDto> getAllBankDetails();
 
 }

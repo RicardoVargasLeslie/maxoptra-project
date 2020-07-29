@@ -76,7 +76,7 @@ class ProcesDataTest {
 		listMock.add(dt2);
 
 		// When ----------------------------//
-		Assert.assertEquals(service.getAll(), listMock);
+		Assert.assertEquals(service.getAllBankDetails(), listMock);
 
 	}
 
@@ -98,17 +98,4 @@ class ProcesDataTest {
 
 	}
 
-//	public List<BankDetailDto> ProcessCsv(File csvFile) throws IOException {
-//
-//		LOGGER.info("Call() ----> ProcessList()");
-//		List<BankDetail> listFromCsv = new ArrayList<>();
-//
-//		if (csvFile != null) {
-//			listFromCsv = ReaderUtil.csvToDetailsWithHeaders(csvFile);
-//			listFromCsv.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
-//
-//		}
-//		return ListMapperUtil.map(listFromCsv);
-//
-//	}
 }
