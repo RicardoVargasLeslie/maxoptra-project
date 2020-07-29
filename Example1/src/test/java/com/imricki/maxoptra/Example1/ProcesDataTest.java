@@ -2,7 +2,7 @@ package com.imricki.maxoptra.Example1;
 
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +18,7 @@ import com.imricki.maxoptra.dto.BankDetailDto;
 import com.imricki.maxoptra.service.ProcesData;
 
 @RunWith(MockitoJUnitRunner.class)
-class BankDetailTest {
+class ProcesDataTest {
 
 	@InjectMocks
 	private ProcesData service;
@@ -27,7 +27,7 @@ class BankDetailTest {
 	private BankDetailDto dtoMock;
 
 	@Mock
-	private ArrayList<BankDetailDto> listMock;
+	private List<BankDetailDto> listMock;
 
 	@BeforeEach
 	public void setUp() throws Exception {
@@ -60,24 +60,16 @@ class BankDetailTest {
 
 	}
 
-//	@Test
-//	void shouldDoNothinBadDetails() {
-//
-//		//Given
-//
-//		BankDetailDto badDetail=null;
-//		// -------------------------------------//
-//
-//		when(dto).then(null);
-//
-//		// When ----------------------------------//
-//		service.addDetails(dto);
-//
-//		// Then -----------------------------------//
-//		InOrder InOrder = Mockito.inOrder(dto);
-//		InOrder.verify(dto).getBank().equals(null);
-//
-//		InOrder.verifyNoMoreInteractions();
-////		// ---------------------------------//
-//	}
+	@Test
+	void shouldGetAllDetails() {
+
+		when(service.getAll()).thenReturn(listMock);
+
+		service.getAll();
+
+		// Then ----------------------------//
+		InOrder inOrder = Mockito.inOrder(listMock);
+		inOrder.verify(listMock).get(0);
+		inOrder.verifyNoMoreInteractions();
+	}
 }
