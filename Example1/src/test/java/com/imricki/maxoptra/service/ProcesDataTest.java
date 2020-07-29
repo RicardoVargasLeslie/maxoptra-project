@@ -98,18 +98,4 @@ class ProcesDataTest {
 
 	}
 
-//	public List<BankDetailDto> processCsv(File csvFile) throws IOException {
-//
-//		LOGGER.info("Call() ----> ProcessList()");
-//		List<BankDetail> listFromCsv = new ArrayList<>();
-//
-//		if (csvFile != null) {
-//			listFromCsv = ReaderUtil.csvToDetailsWithHeaders(csvFile);
-//			listFromCsv.sort(Comparator.comparing(BankDetail::getExpirydate, Comparator.reverseOrder()));
-//
-//		}
-//		return ListMapperUtil.map(listFromCsv);
-//
-//	}
-
 }

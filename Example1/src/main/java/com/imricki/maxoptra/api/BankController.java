@@ -1,4 +1,4 @@
-package com.imricki.maxoptra.rest;
+package com.imricki.maxoptra.api;
 
 import java.io.File;
 import java.io.IOException;
