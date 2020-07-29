@@ -17,7 +17,7 @@ import com.imricki.maxoptra.utils.DataUtil;
 
 /**
  * ProcesData is the implementation of BankDetailService interface.
- * 
+ *
  * @author Ricardo Vargas
  * @version 1.0
  */
@@ -36,7 +36,7 @@ public class ProcesData implements BankDetailService {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	@Override
-	public List<BankDetailDto> ProcessCsv(File csvFile) throws IOException {
+	public List<BankDetailDto> processCsv(File csvFile) throws IOException {
 
 		LOGGER.info("Call() ----> ProcessList()");
 		List<BankDetail> listFromCsv = new ArrayList<>();

@@ -8,7 +8,7 @@ import com.imricki.maxoptra.dto.BankDetailDto;
 
 /**
  * BankDetailService is a interface with the methods to procces data.
- * 
+ *
  * @author Ricardo Vargas
  * @version 1.0
  */
@@ -21,7 +21,7 @@ public interface BankDetailService {
 	 * @return the list with all data to the view
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	List<BankDetailDto> ProcessCsv(File csvFile) throws IOException;
+	List<BankDetailDto> processCsv(File csvFile) throws IOException;
 
 	BankDetailDto addDetails(BankDetailDto newDetail);
 

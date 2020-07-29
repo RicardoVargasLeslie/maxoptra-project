@@ -21,6 +21,7 @@ import com.imricki.maxoptra.service.ProcesData;
 
 /**
  * BankController is the entry point to the API
+ * 
  * @author Ricardo Vargas
  * @version 1.0
  */
@@ -34,7 +35,7 @@ public class BankController {
 
 	/**
 	 * Displays the form before inserting data
-	 * 
+	 *
 	 * @return the form view
 	 */
 	@GetMapping("/addForm")
@@ -81,7 +82,7 @@ public class BankController {
 
 			File file = ReaderUtil.convert(multiPartFile);
 
-			model.addAttribute("details", procesDataService.ProcessCsv(file));
+			model.addAttribute("details", procesDataService.processCsv(file));
 
 		}
 
