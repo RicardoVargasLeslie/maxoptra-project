@@ -4,6 +4,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -63,13 +64,16 @@ class ProcesDataTest {
 	@Test
 	void shouldGetAllDetails() {
 
-//		when(service.getAll()).thenReturn(listMock);
-//
-//		service.getAll();
-//
-//		// Then ----------------------------//
-//		InOrder inOrder = Mockito.inOrder(listMock);
-//		inOrder.verify(listMock).get(0);
-//		inOrder.verifyNoMoreInteractions();
+		// Given ----------------------------//
+
+		final BankDetailDto dt1 = new BankDetailDto("HSBC", "5555666", "Nov-2018");
+		final BankDetailDto dt2 = new BankDetailDto("HSBC", "4343444", "Nov-2017");
+
+		listMock.add(dt1);
+		listMock.add(dt2);
+
+		// When ----------------------------//
+		Assert.assertEquals(service.getAll(), listMock);
+
 	}
 }
